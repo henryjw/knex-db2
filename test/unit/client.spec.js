@@ -24,8 +24,8 @@ describe('DB2 Client', () => {
 				driver: '{IBM Cli Driver}'
 			}
 			const expectedConnectionString = `DRIVER=${connectionConfig.driver};SYSTEM=${connectionConfig.host};HOSTNAME=${connectionConfig.host};`
-                + `PORT=${connectionConfig.port};DATABASE=${connectionConfig.database};`
-                + `UID=${connectionConfig.user};PWD=${connectionConfig.password};`
+				+ `PORT=${connectionConfig.port};DATABASE=${connectionConfig.database};`
+				+ `UID=${connectionConfig.user};PWD=${connectionConfig.password};`
 
 			const connectionString = client._getConnectionString(connectionConfig)
 
@@ -34,7 +34,7 @@ describe('DB2 Client', () => {
 
 		it('should append additional connection string parameters', () => {
 			const connectionConfig = {
-				additionalConnectionStringValues: {
+				connectionStringParams: {
 					X: '1',
 					Y: '20'
 				}

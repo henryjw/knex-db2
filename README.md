@@ -15,7 +15,7 @@ const knex = Knex({
 		user: 'db2inst1',
 		password: 'db2inst1-pwd',
 		driver: '{IBM Cli Driver}',
-		additionalConnectionStringValues: {
+		connectionStringParams: {
 			ALLOWPROCCALLS: 1,
 			CMT: 0
 		}

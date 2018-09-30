@@ -71,9 +71,9 @@ class DB2Client extends Client {
 	}
 
 	_getConnectionString(connectionConfig = {}) {
-		const additionalConnectionStringValues = (connectionConfig.additionalConnectionStringValues || {})
-		const connectionStringExtension = Object.keys(additionalConnectionStringValues).reduce((result, key) => {
-			const value = additionalConnectionStringValues[key]
+		const connectionStringParams = (connectionConfig.connectionStringParams || {})
+		const connectionStringExtension = Object.keys(connectionStringParams).reduce((result, key) => {
+			const value = connectionStringParams[key]
 			return result + `${key}=${value};`
 		}, '')
 
@@ -128,19 +128,19 @@ class DB2Client extends Client {
 		if (obj.output) return obj.output.call(runner, resp)
 
 		switch (method) {
-		case 'select':
-		case 'pluck':
-		case 'first': {
-			if (method === 'pluck') return rows.map(obj.pluck)
-			return method === 'first' ? rows[0] : rows
-		}
-		case 'insert':
-		case 'del':
-		case 'update':
-		case 'counter':
-			return resp.rowCount
-		default:
-			return resp
+			case 'select':
+			case 'pluck':
+			case 'first': {
+				if (method === 'pluck') return rows.map(obj.pluck)
+				return method === 'first' ? rows[0] : rows
+			}
+			case 'insert':
+			case 'del':
+			case 'update':
+			case 'counter':
+				return resp.rowCount
+			default:
+				return resp
 		}
 	}
 }
