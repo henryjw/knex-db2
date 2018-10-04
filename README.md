@@ -1,5 +1,15 @@
 **Disclaimer: this library is under active development. Use at your own risk.**
 
+## Limitations
+Currently this dialect has limited functionality compared to the Knex built-in dialects. Below are some of the limitations:
+- No transaction support
+- No streaming support
+- Possibly other missing functionality
+
+## Supported functionality
+- Query building
+- Query execution (see **Limitations** section)
+
 ## Usage:
 ```javascript
 const Knex = require('knex')
