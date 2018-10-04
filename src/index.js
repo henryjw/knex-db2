@@ -128,19 +128,19 @@ class DB2Client extends Client {
 		if (obj.output) return obj.output.call(runner, resp)
 
 		switch (method) {
-			case 'select':
-			case 'pluck':
-			case 'first': {
-				if (method === 'pluck') return rows.map(obj.pluck)
-				return method === 'first' ? rows[0] : rows
-			}
-			case 'insert':
-			case 'del':
-			case 'update':
-			case 'counter':
-				return resp.rowCount
-			default:
-				return resp
+		case 'select':
+		case 'pluck':
+		case 'first': {
+			if (method === 'pluck') return rows.map(obj.pluck)
+			return method === 'first' ? rows[0] : rows
+		}
+		case 'insert':
+		case 'del':
+		case 'update':
+		case 'counter':
+			return resp.rowCount
+		default:
+			return resp
 		}
 	}
 }

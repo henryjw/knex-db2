@@ -4,7 +4,7 @@
   "description": "Knex dialect for DB2",
   "main": "src/index.js",
   "scripts": {
-    "test": "mocha test/unit"
+    "test": "mocha test/unit && mocha --recursive test/integration"
   },
   "keywords": [
     "knex",
