@@ -10,11 +10,19 @@ Currently this dialect has limited functionality compared to the Knex built-in d
 - Query building
 - Query execution (see **Limitations** section)
 
+
+## Installing
+`npm install knex-db2`
+
+## Dependencies
+`npm install odbc` (see **ODBC dependencies**) section if you run into issues
+
+`npm install knex`
+
 ## Usage:
 ```javascript
 const Knex = require('knex')
-
-const Db2Dialect = require('./src')
+const Db2Dialect = require('knex-db2')
 
 const knex = Knex({
 	client: Db2Dialect,
