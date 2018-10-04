@@ -91,7 +91,15 @@ class DB2Client extends Client {
 		// TODO: verify correctness
 		if (!obj || typeof obj === 'string') obj = { sql: obj }
 
-		const method = obj.method || obj.sql.split(' ')[0]
+		const method = obj.method != 'raw'
+			? obj.method
+			: obj.sql.split(' ')[0]
+
+		obj.sqlMethod = method
+
+
+		// Different functions are used since query() doesn't return # of rows affected, which is needed
+		// for queries that modify the database
 		if (method === 'select' || method === 'first' || method === 'pluck') {
 			return connection.queryAsync(obj.sql, obj.bindings)
 				.then(function formatResponse(rows) {
@@ -122,7 +130,7 @@ class DB2Client extends Client {
 		if (obj === null) return
 
 		const resp = obj.response
-		const method = obj.method
+		const method = obj.sqlMethod
 		const rows = resp.rows
 
 		if (obj.output) return obj.output.call(runner, resp)
@@ -136,6 +144,7 @@ class DB2Client extends Client {
 		}
 		case 'insert':
 		case 'del':
+		case 'delete':
 		case 'update':
 		case 'counter':
 			return resp.rowCount
