@@ -8,18 +8,18 @@ Currently this dialect has limited functionality compared to the Knex built-in d
 
 ## Supported functionality
 - Query building
-- Query execution (see **Limitations** section)
+- Query execution (see [Limitations](#Limitations))
 
 
 ## Installing
 `npm install knex-db2`
 
 ## Dependencies
-`npm install odbc` (see **ODBC dependencies**) section if you run into issues
+`npm install odbc` see [ODBC dependencies](#odbc-dependencies) if you run into any issues
 
 `npm install knex`
 
-## Usage:
+## Usage
 ```javascript
 const Knex = require('knex')
 const Db2Dialect = require('knex-db2')
@@ -57,7 +57,7 @@ query
 ```
 
 
-## ODBC dependencies:
+## ODBC dependencies
 - make: `sudo apt install make`
 - g++: `sudo apt install g++`
 - unix odbc: `sudo apt-get install unixodbc unixodbc-dev`
