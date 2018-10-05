@@ -91,9 +91,9 @@ class DB2Client extends Client {
 		// TODO: verify correctness
 		if (!obj || typeof obj === 'string') obj = { sql: obj }
 
-		const method = obj.method != 'raw'
+		const method = (obj.method != 'raw'
 			? obj.method
-			: obj.sql.split(' ')[0]
+			: obj.sql.split(' ')[0]).toLowerCase()
 
 		obj.sqlMethod = method
 
