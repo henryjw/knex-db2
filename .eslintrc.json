@@ -25,6 +25,15 @@
         "semi": [
             "error",
             "never"
-        ]
+        ],
+        "class-methods-use-this": "off",
+        "no-underscore-dangle": "warn",
+        "no-unused-vars": "warn",
+        "no-param-reassign": "warn",
+        "import/no-extraneous-dependencies": "warn",
+        "global-require": "warn",
+        "import/no-dynamic-require": "warn",
+        "prefer-rest-params": "warn",
+        "no-unused-expressions": "warn"
     }
 }

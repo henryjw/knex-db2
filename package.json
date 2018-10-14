@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "test": "mocha test/unit && mocha --recursive test/integration",
-    "lint": "eslint . --fix"
+    "lint": "eslint src/**",
+    "lint-test": "eslint test/**"
   },
   "keywords": [
     "knex",
@@ -16,8 +17,12 @@
   "author": "Henry Williams",
   "license": "MIT",
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
     "chai": "^4.2.0",
     "eslint": "^5.6.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-defaults": "^9.0.0",
+    "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-react": "^7.11.1",
     "knex": "^0.15.2",
     "mocha": "^5.2.0",
