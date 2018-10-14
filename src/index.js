@@ -34,8 +34,6 @@ class DB2Client extends Client {
 		return value
 	}
 
-	// Wrap knex Client logger.debug call in conditional
-	// Debug statements only print if DEBUG=1
 	printDebug(message) {
 		if (process.env.DEBUG === 1) {
 			this.logger.log(message)
