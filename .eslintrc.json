@@ -2,16 +2,17 @@
     "env": {
         "es6": true,
         "node": true,
-        "mocha": true
+        "mocha": true,
+        "browser": false
     },
-    "extends": "eslint:recommended",
+    "extends": "airbnb-base",
     "parserOptions": {
         "ecmaVersion": 2017
     },
     "rules": {
         "indent": [
             "error",
-            "tab"
+            4
         ],
         "linebreak-style": [
             "error",
