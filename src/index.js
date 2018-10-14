@@ -5,6 +5,15 @@ const Transaction = require('./transaction')
 
 class DB2Client extends Client {
 	constructor(config = {}) {
+		config.log={
+			debug:function (message) {
+				// console.log("Debug",typeof(process.env.DEBUG));
+				if (process.env.DEBUG==="1") {
+					console.log(message);
+				}
+			}
+		}
+
 		super(config)
 
 		// These values need to be set before calling the Client base class since it expects them
