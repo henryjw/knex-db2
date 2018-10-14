@@ -34,10 +34,16 @@ class DB2Client extends Client {
 		return value
 	}
 
+	printDebug(message) {
+		if (process.env.DEBUG === 1) {
+			this.logger.log(message)
+		}
+	}
+
 	// Get a raw connection, called by the pool manager whenever a new
 	// connection needs to be added to the pool.
 	acquireRawConnection() {
-		this.logger.debug('acquiring raw connection.')
+		printDebug('acquiring raw connection.')
 		const connectionConfig = this.config.connection
 		return new Promise((resolve, reject) => {
 			this.driver.open(this._getConnectionString(connectionConfig), (err, connection) => {
@@ -53,7 +59,7 @@ class DB2Client extends Client {
 	// Used to explicitly close a connection, called internally by the pool manager
 	// when a connection times out or the pool is shutdown.
 	destroyRawConnection(connection) {
-		this.logger.debug('destroying raw connection')
+		printDebug('destroying raw connection')
 
 		return connection.closeAsync()
 	}
