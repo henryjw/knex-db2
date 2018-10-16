@@ -1,3 +1,5 @@
+[![npm version](http://img.shields.io/npm/v/knex-db2.svg)](https://npmjs.org/package/knex-db2)
+
 **Disclaimer: this library is under active development. Use at your own risk.**
 
 ## Limitations
