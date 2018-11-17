@@ -3,6 +3,9 @@
 
 **Disclaimer: this library is under active development. Use at your own risk.**
 
+## Description
+This is an external dialect for [knex](https://github.com/tgriesser/knex).
+
 ## Limitations
 Currently this dialect has limited functionality compared to the Knex built-in dialects. Below are some of the limitations:
 - No transaction support
