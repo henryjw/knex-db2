@@ -1,15 +1,15 @@
-const { expect } = require('chai')
+const { expect, } = require('chai')
 
 const Client = require('../../src/')
 
 describe('DB2 Client', () => {
-    const client = new Client({ client: 'db2' })
+    const client = new Client({ client: 'db2', })
     it('should not wrap identifiers with delimiter', () => {
         expect(client.wrapIdentifierImpl('value')).to.equal('value')
     })
 
     it('can be initialized with just the client name in config', () => {
-        expect(new Client({ client: 'db2' })).to.exist
+        expect(new Client({ client: 'db2', })).to.exist
     })
 
     describe('._getConnectionString', () => {

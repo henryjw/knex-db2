@@ -1,0 +1,26 @@
+# TODO: Run tests against database instance. DB2 is currently not supported by TravisCI out of the box
+
+language: node_js
+dist: trusty
+sudo: required
+
+cache:
+  directories:
+  - "node_modules"
+
+matrix:
+  fast_finish: true
+  include:
+  - node_js: "11"
+  - node_js: "10"
+  - node_js: "8"
+  - node_js: "6"
+install:
+  - npm i
+
+script:
+  - npm test
+  - npm run lint
+
+notifications:
+  email: true

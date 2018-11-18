@@ -17,7 +17,7 @@ describe('Joins', () => {
 
         testSql(
             query,
-            'select * from test inner join othertable on test.id = othertable.id',
+            'select * from test inner join othertable on test.id = othertable.id'
         )
     })
 
@@ -29,7 +29,7 @@ describe('Joins', () => {
 
         testSql(
             query,
-            'select * from "test" inner join "othertable" on "test"."id" = "othertable"."id"',
+            'select * from "test" inner join "othertable" on "test"."id" = "othertable"."id"'
         )
     })
 })

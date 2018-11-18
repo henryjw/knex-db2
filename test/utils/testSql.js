@@ -1,4 +1,4 @@
-const { expect } = require('chai')
+const { expect, } = require('chai')
 
 module.exports = (query, expectedSql, expectedBindings) => {
     expect(query.toString()).to.equal(expectedSql)

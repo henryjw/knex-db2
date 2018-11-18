@@ -15,7 +15,7 @@ class DB2Client extends Client {
 
         Client.call(this, config)
 
-        const { driver } = (config.connection || {})
+        const { driver, } = (config.connection || {})
 
         if (!driver) {
             this.logger.warn('Warn: config.connection.driver is needed for connecting to the database')
@@ -71,6 +71,12 @@ class DB2Client extends Client {
     }
 
     _stream(connection, obj, stream, options) {
+        this._stream(
+            connection,
+            obj,
+            stream,
+            options
+        )
         throw new Error('Not yet implemented')
     }
 
@@ -94,7 +100,7 @@ class DB2Client extends Client {
     // and any other necessary prep work.
     _query(connection, obj) {
         // TODO: verify correctness
-        if (!obj || typeof obj === 'string') obj = { sql: obj }
+        if (!obj || typeof obj === 'string') obj = { sql: obj, }
 
         const method = (obj.method !== 'raw'
             ? obj.method
@@ -136,7 +142,7 @@ class DB2Client extends Client {
 
         const resp = obj.response
         const method = obj.sqlMethod
-        const { rows } = resp
+        const { rows, } = resp
 
         if (obj.output) return obj.output.call(runner, resp)
 

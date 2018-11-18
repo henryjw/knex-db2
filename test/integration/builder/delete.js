@@ -16,7 +16,7 @@ describe('Delete', () => {
 
         testSql(
             query,
-            'delete from test where x = \'y\'',
+            'delete from test where x = \'y\''
         )
     })
 
@@ -27,7 +27,7 @@ describe('Delete', () => {
 
         testSql(
             query,
-            'delete from "test"',
+            'delete from "test"'
         )
     })
 })

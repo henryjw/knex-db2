@@ -34,6 +34,13 @@
         "global-require": "warn",
         "import/no-dynamic-require": "warn",
         "prefer-rest-params": "warn",
-        "no-unused-expressions": "warn"
+        "no-unused-expressions": "warn",
+        "comma-dangle": ["error", {
+            "arrays": "always",
+            "objects": "always",
+            "imports": "always",
+            "exports": "always",
+            "functions": "never"
+        }]
     }
 }

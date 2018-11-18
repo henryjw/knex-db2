@@ -1,4 +1,6 @@
-[![npm version](http://img.shields.io/npm/v/knex-db2.svg)](https://npmjs.org/package/knex-db2) [![Known Vulnerabilities](https://snyk.io/test/npm/knex-db2/badge.svg)](https://snyk.io/test/npm/knex-db2)
+[![npm version](http://img.shields.io/npm/v/knex-db2.svg)](https://npmjs.org/package/knex-db2)
+[![Build Status](https://travis-ci.org/henryjw/knex-db2.svg?branch=master)](https://travis-ci.org/henryjw/knex-db2)
+[![Known Vulnerabilities](https://snyk.io/test/npm/knex-db2/badge.svg)](https://snyk.io/test/npm/knex-db2)
 
 
 **Disclaimer: this library is under active development. Use at your own risk.**
