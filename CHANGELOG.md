@@ -1,3 +1,6 @@
+## 0.1.4 - 18 Nov 2018
+- Support Node v6
+
 ## 0.1.3 - 17 Nov 2018
 - Don't show debug logs by default #6
 
