@@ -17,7 +17,14 @@
     "querybuilder",
     "db2"
   ],
-  "author": "Henry Williams",
+  "author": {
+    "name": "Henry Williams",
+    "web": "https://github.com/henryjw"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/henryjw/knex-db2.git"
+  },
   "license": "MIT",
   "devDependencies": {
     "babel-eslint": "^10.0.1",
@@ -35,6 +42,12 @@
   "dependencies": {
     "bluebird": "^3.5.2"
   },
+  "files": [
+    "src/*",
+    "CHANGELOG.md",
+    "README.md",
+    "LICENSE"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint",
