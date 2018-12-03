@@ -6,7 +6,7 @@
 **Disclaimer: this library is under active development. Use at your own risk.**
 
 ## Description
-This is an external dialect for [knex](https://github.com/tgriesser/knex).
+This is an external dialect for [knex](https://github.com/tgriesser/knex). Require
 
 ## Limitations
 Currently this dialect has limited functionality compared to the Knex built-in dialects. Below are some of the limitations:
@@ -21,6 +21,8 @@ Currently this dialect has limited functionality compared to the Knex built-in d
 
 ## Installing
 `npm install knex-db2`
+
+Requires Node v6 or higher.
 
 ## Dependencies
 `npm install odbc` see [ODBC dependencies](#odbc-dependencies) if you run into any issues
