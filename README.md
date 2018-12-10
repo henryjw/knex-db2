@@ -3,10 +3,10 @@
 [![Known Vulnerabilities](https://snyk.io/test/npm/knex-db2/badge.svg)](https://snyk.io/test/npm/knex-db2)
 
 
-**Disclaimer: this library is under active development. Use at your own risk.**
+**Disclaimer: this library is in early stages of development. Use at your own risk.**
 
 ## Description
-This is an external dialect for [knex](https://github.com/tgriesser/knex). Require
+This is an external dialect for [knex](https://github.com/tgriesser/knex).
 
 ## Limitations
 Currently this dialect has limited functionality compared to the Knex built-in dialects. Below are some of the limitations:
