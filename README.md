@@ -90,7 +90,7 @@ E.g., `ODBCINI=/etc ODBCSYSINI=/etc`.
 
 ## Installing default driver
 ### Download driver
-https://github.com/ibmdb/node-ibm_db#systemDetails
+https://github.com/ibmdb/node-ibm_db#-download-clidriver-based-on-your-platform--architecture-from-the-below-ibm-hosted-url
 
 ### Install driver
 - Extract downloaded file. This will create a `clidriver` folder with the driver contents
