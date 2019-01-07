@@ -19,8 +19,13 @@ install:
   - npm i
 
 script:
-  - npm test
   - npm run lint
+
+  - install-min-knex
+  - npm test
+  
+  - install-latest-knex
+  - npm test
 
 notifications:
   email: true
