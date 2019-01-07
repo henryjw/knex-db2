@@ -9,6 +9,8 @@
   "engineStrict": true,
   "scripts": {
     "test": "mocha test/unit && mocha --recursive test/integration",
+    "test-min-knex": "npm i knex@0.15.2 && npm test",
+    "test-latest-knex": "npm i knex@* && npm test",
     "lint": "eslint '{src,test}/**/*.js'"
   },
   "keywords": [
@@ -35,7 +37,7 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-react": "^7.11.1",
     "husky": "^1.1.2",
-    "knex": "^0.15.2",
+    "knex": "^0.16.3",
     "mocha": "^5.2.0",
     "odbc": "^1.4.5"
   },

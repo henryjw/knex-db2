@@ -20,12 +20,8 @@ install:
 
 script:
   - npm run lint
-
-  - scripts/install-min-knex
-  - npm test
-  
-  - scripts/install-latest-knex
-  - npm test
+  - npm run test-latest-knex
+  - npm run test-min-knex
 
 notifications:
   email: true
