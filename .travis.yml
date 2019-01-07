@@ -21,10 +21,10 @@ install:
 script:
   - npm run lint
 
-  - install-min-knex
+  - scripts/install-min-knex
   - npm test
   
-  - install-latest-knex
+  - scripts/install-latest-knex
   - npm test
 
 notifications:
