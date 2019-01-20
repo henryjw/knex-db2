@@ -1,3 +1,6 @@
+## 0.1.5 - 10 Dec 2018
+- Documentation updates
+
 ## 0.1.4 - 18 Nov 2018
 - Support Node v6
 
