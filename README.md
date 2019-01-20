@@ -5,7 +5,7 @@
 [![devDependencies Status](https://david-dm.org/henryjw/knex-db2/dev-status.svg)](https://david-dm.org/henryjw/knex-db2?type=dev)
 
 
-**Disclaimer: this library is in early stages of development. Use at your own risk.**
+**Disclaimer: this library is in early stages of development. Use at your own risk. Please submit an issue for any bugs encounter or any questions you have.**
 
 ## Description
 This is an external dialect for [knex](https://github.com/tgriesser/knex).
