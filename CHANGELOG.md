@@ -1,3 +1,7 @@
+## 1.0.0 - 15 Feb 2019
+- Bump up to 1.0.0 to follow semver rules
+- Internal enhancements
+
 ## 0.1.5 - 10 Dec 2018
 - Documentation updates
 
