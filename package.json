@@ -39,7 +39,7 @@
     "husky": "^1.1.2",
     "knex": "^0.16.3",
     "mocha": "^5.2.0",
-    "odbc": "^2.0.0-beta.1"
+    "odbc": "^2.0.0-3"
   },
   "dependencies": {
     "bluebird": "^3.5.2"
