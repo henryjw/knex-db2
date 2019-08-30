@@ -7,6 +7,11 @@
 
 **Disclaimer: this library is in early stages of development. Use at your own risk. Please submit an issue for any bugs encounter or any questions you have.**
 
+# Looking for new maintainers
+If anyone would like to take ownership of this project, please contact me. I built this to simplify my life at my previous employer, but I no longer have a need for it.
+
+With that said, I will continue to support it until someone else takes over. New features will take a while, but I'll prioritize any bugs reported.
+
 ## Description
 This is an external dialect for [knex](https://github.com/tgriesser/knex).
 
