@@ -37,7 +37,7 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-react": "^7.11.1",
     "husky": "^1.1.2",
-    "knex": "^0.16.3",
+    "knex": "^0.19.5",
     "mocha": "^5.2.0",
     "odbc": "^1.4.5"
   },
