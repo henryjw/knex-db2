@@ -153,7 +153,7 @@ class DB2Client extends Client {
                                 rows,
                                 rowCount: rows.length,
                             }
-
+                            stmnt.close();
                             resolve(obj);
                         });
                     });

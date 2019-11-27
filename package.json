@@ -1,6 +1,6 @@
 {
   "name": "@globalids-mdb/knex-db2",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Knex dialect for DB2",
   "main": "src/index.js",
   "engines": {
