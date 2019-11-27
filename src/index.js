@@ -128,20 +128,38 @@ class DB2Client extends Client {
             });
         }
 
-        return connection.createStatement()
-            .then((stmnt) => {
-                return stmnt.prepare(obj.sql).then(() => {
-                    return stmnt.bind(obj.bindings).then(() => {
-                        return stmnt.execute().then((numRowsAffected) => {
-                            obj.response = {
-                                rowCount: numRowsAffected,
+        return new Promise((resolve, reject) => {
+            connection.createStatement((err, stmnt) => {
+                if (err) {
+                    reject(err);
+                    return;
+                }
+                stmnt.prepare(obj.sql, (err2) => {
+                    if (err2) {
+                        reject(err2);
+                        return;
+                    }
+                    stmnt.bind(obj.bindings, (err3) => {
+                        if (err3) {
+                            reject(err3);
+                            return;
+                        }
+                        stmnt.execute((err4, rows) => {
+                            if (err4) {
+                                reject(err4);
+                                return;
                             }
-            
-                            return obj
+                            obj.response = {
+                                rows,
+                                rowCount: rows.length,
+                            }
+
+                            resolve(obj);
                         });
                     });
                 });
             });
+        });
     }
 
     // Process / normalize the response as returned from the query
