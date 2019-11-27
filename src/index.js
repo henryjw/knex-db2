@@ -48,7 +48,7 @@ class DB2Client extends Client {
         this.printDebug('acquiring raw connection.')
         const connectionConfig = this.config.connection
         return new Promise((resolve, reject) => {
-            this.driver.open(this._getConnectionString(connectionConfig), (err, connection) => {
+            this.driver.connect(this._getConnectionString(connectionConfig), (err, connection) => {
                 if (err) {
                     return reject(err)
                 }
@@ -63,7 +63,7 @@ class DB2Client extends Client {
     destroyRawConnection(connection) {
         this.printDebug('destroying raw connection')
 
-        return connection.closeAsync()
+        return connection.close()
     }
 
     validateConnection(connection) {
@@ -112,26 +112,36 @@ class DB2Client extends Client {
         // Different functions are used since query() doesn't return # of rows affected,
         // which is needed for queries that modify the database
         if (method === 'select' || method === 'first' || method === 'pluck') {
-            return connection.queryAsync(obj.sql, obj.bindings)
-                .then((rows) => {
+            return new Promise((resolve, reject) => {
+                connection.query(obj.sql, obj.bindings, (err, rows) => {
+                    if (err) {
+                        reject(err);
+                        return;
+                    }
                     obj.response = {
                         rows,
                         rowCount: rows.length,
                     }
 
-                    return obj
-                })
+                    resolve(obj);
+                });
+            });
         }
 
-        return connection.prepareAsync(obj.sql)
-            .then(statement => statement.executeNonQueryAsync(obj.bindings))
-            .then((numRowsAffected) => {
-                obj.response = {
-                    rowCount: numRowsAffected,
-                }
-
-                return obj
-            })
+        return connection.createStatement()
+            .then((stmnt) => {
+                return stmnt.prepare(obj.sql).then(() => {
+                    return stmnt.bind(obj.bindings).then(() => {
+                        return stmnt.execute().then((numRowsAffected) => {
+                            obj.response = {
+                                rowCount: numRowsAffected,
+                            }
+            
+                            return obj
+                        });
+                    });
+                });
+            });
     }
 
     // Process / normalize the response as returned from the query
@@ -147,20 +157,20 @@ class DB2Client extends Client {
         if (obj.output) return obj.output.call(runner, resp)
 
         switch (method) {
-        case 'select':
-        case 'pluck':
-        case 'first': {
-            if (method === 'pluck') return rows.map(obj.pluck)
-            return method === 'first' ? rows[0] : rows
-        }
-        case 'insert':
-        case 'del':
-        case 'delete':
-        case 'update':
-        case 'counter':
-            return resp.rowCount
-        default:
-            return resp
+            case 'select':
+            case 'pluck':
+            case 'first': {
+                if (method === 'pluck') return rows.map(obj.pluck)
+                return method === 'first' ? rows[0] : rows
+            }
+            case 'insert':
+            case 'del':
+            case 'delete':
+            case 'update':
+            case 'counter':
+                return resp.rowCount
+            default:
+                return resp
         }
     }
 }
