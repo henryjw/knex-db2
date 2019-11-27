@@ -1,10 +1,10 @@
 {
-  "name": "knex-db2",
+  "name": "@globalids-mdb/knex-db2",
   "version": "2.0.0",
   "description": "Knex dialect for DB2",
   "main": "src/index.js",
   "engines": {
-    "node": ">=6"
+    "node": ">=10"
   },
   "engineStrict": true,
   "scripts": {
