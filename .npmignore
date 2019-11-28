@@ -1,0 +1,7 @@
+*.ts
+!*.d.ts
+test
+tsconfig.json
+.vscode
+node_modules
+.eslintrc.json
