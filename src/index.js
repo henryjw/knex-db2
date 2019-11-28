@@ -113,17 +113,19 @@ class DB2Client extends Client {
         // which is needed for queries that modify the database
         if (method === 'select' || method === 'first' || method === 'pluck') {
             return new Promise((resolve, reject) => {
-                connection.queryResult(obj.sql, obj.bindings, (err, rows) => {
-                    if (err) {
-                        reject(err);
-                        return;
-                    }
-                    obj.response = {
-                        rows,
-                        rowCount: rows.length,
-                    }
-
-                    resolve(obj);
+                connection.queryResult(obj.sql, obj.bindings, (err, resultSet) => {
+                    resultSet.fetchAll((err, rows, colcount) => {
+                        if (err) {
+                            reject(err);
+                            return;
+                        }
+                        obj.response = {
+                            rows,
+                            rowCount: rows.length,
+                        }
+    
+                        resolve(obj);
+                    });
                 });
             });
         }
