@@ -37,9 +37,9 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-react": "^7.11.1",
     "husky": "^1.1.2",
+    "ibm_db": "^2.6.1",
     "knex": "^0.16.3",
-    "mocha": "^5.2.0",
-    "odbc": "^2.2.2"
+    "mocha": "^5.2.0"
   },
   "dependencies": {
     "bluebird": "^3.5.2"

@@ -9,7 +9,7 @@ class TransactionDb2 extends Transaction {
 
     commit(conn, value) {
         this._completed = true
-        return conn.commit()
+        return conn.commitTransaction()
             .then(() => this._resolver(value))
             .catch(this._rejecter)
     }

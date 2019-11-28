@@ -11,7 +11,7 @@ class DB2Client extends Client {
         // have already been set for this instance. Will get errors like pool not being initialized
         // otherwise
         this.dialect = 'db2'
-        this.driverName = 'odbc'
+        this.driverName = 'ibm_db'
 
         Client.call(this, config)
 
@@ -48,7 +48,7 @@ class DB2Client extends Client {
         this.printDebug('acquiring raw connection.')
         const connectionConfig = this.config.connection
         return new Promise((resolve, reject) => {
-            this.driver.connect(this._getConnectionString(connectionConfig), (err, connection) => {
+            this.driver.open(this._getConnectionString(connectionConfig), {}, (err, connection) => {
                 if (err) {
                     return reject(err)
                 }
@@ -113,7 +113,7 @@ class DB2Client extends Client {
         // which is needed for queries that modify the database
         if (method === 'select' || method === 'first' || method === 'pluck') {
             return new Promise((resolve, reject) => {
-                connection.query(obj.sql, obj.bindings, (err, rows) => {
+                connection.queryResult(obj.sql, obj.bindings, (err, rows) => {
                     if (err) {
                         reject(err);
                         return;
@@ -129,35 +129,17 @@ class DB2Client extends Client {
         }
 
         return new Promise((resolve, reject) => {
-            connection.createStatement((err, stmnt) => {
+            connection.query(obj.sql, obj.bindings, (err, rows) => {
                 if (err) {
                     reject(err);
                     return;
                 }
-                stmnt.prepare(obj.sql, (err2) => {
-                    if (err2) {
-                        reject(err2);
-                        return;
-                    }
-                    stmnt.bind(obj.bindings, (err3) => {
-                        if (err3) {
-                            reject(err3);
-                            return;
-                        }
-                        stmnt.execute((err4, rows) => {
-                            if (err4) {
-                                reject(err4);
-                                return;
-                            }
-                            obj.response = {
-                                rows,
-                                rowCount: rows.length,
-                            }
-                            stmnt.close();
-                            resolve(obj);
-                        });
-                    });
-                });
+                obj.response = {
+                    rows,
+                    rowCount: rows.length,
+                }
+
+                resolve(obj);
             });
         });
     }
