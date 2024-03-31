@@ -1,16 +1,11 @@
 [![npm version](http://img.shields.io/npm/v/knex-db2.svg)](https://npmjs.org/package/knex-db2)
-[![Build Status](https://travis-ci.org/henryjw/knex-db2.svg?branch=master)](https://travis-ci.org/henryjw/knex-db2)
 [![Known Vulnerabilities](https://snyk.io/test/npm/knex-db2/badge.svg)](https://snyk.io/test/npm/knex-db2)
-[![dependencies Status](https://david-dm.org/henryjw/knex-db2/status.svg)](https://david-dm.org/henryjw/knex-db2)
-[![devDependencies Status](https://david-dm.org/henryjw/knex-db2/dev-status.svg)](https://david-dm.org/henryjw/knex-db2?type=dev)
 
 
 **Disclaimer: this library is in early stages of development. Use at your own risk. Please submit an issue for any bugs encounter or any questions you have.**
 
 # Looking for new maintainers
 If anyone would like to take ownership of this project, please contact me. I built this to simplify my life at my previous employer, but I no longer have a need for it.
-
-With that said, I will continue to support it until someone else takes over. New features will take a while, but I'll prioritize any bugs reported.
 
 ## Description
 This is an external dialect for [knex](https://github.com/tgriesser/knex).
