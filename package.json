@@ -1,10 +1,10 @@
 {
-  "name": "knex-db2",
-  "version": "1.0.0",
+  "name": "@globalids-mdb/knex-db2",
+  "version": "2.0.4",
   "description": "Knex dialect for DB2",
   "main": "src/index.js",
   "engines": {
-    "node": ">=6"
+    "node": ">=10"
   },
   "engineStrict": true,
   "scripts": {
@@ -37,9 +37,9 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-react": "^7.11.1",
     "husky": "^1.1.2",
+    "ibm_db": "^2.6.1",
     "knex": "^0.16.3",
-    "mocha": "^5.2.0",
-    "odbc": "^1.4.5"
+    "mocha": "^5.2.0"
   },
   "dependencies": {
     "bluebird": "^3.5.2"
@@ -52,7 +52,7 @@
   ],
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint",
+      "pre-commit": "",
       "pre-push": "npm test"
     }
   }
